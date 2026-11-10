@@ -1,0 +1,46 @@
+ # Personal Mini-Toolkit
+# A menu-driven program with three small tools.
+import random
+
+print("Welcome to your Personal Mini-Toolkit!")
+
+running = True
+
+while running:
+    print()
+    print("=== Personal Mini-Toolkit ===")
+    print("1. Number Guessing Game")
+    print("2. To-Do List")
+    print("3. Name Formatter")
+    print("4. Quit")
+    choice = input("Choose an option (1-4): ")
+
+    # Tool 1: Number Guessing Game
+    # The computer picks a number from 1 to 10. The user guesses until correct.
+    if choice == "1":
+        secret = random.randint(1, 10)
+        guesses = 0
+        print("I am thinking of a number from 1 to 10.")
+        while True:
+            guess = input("Your guess: ")
+            if not guess.isdigit():
+                print("Please type a whole number.")
+                continue
+            guess = int(guess)
+            guesses += 1
+            if guess < secret:
+                print("Too low! Try again.")
+            elif guess > secret:
+                print("Too high! Try again.")
+            else:
+                print(f"Correct! You got it in {guesses} guesses.")
+                break
+    elif choice == "2":
+        print("To-Do list coming soon!")
+    elif choice == "3":
+        print("Name formatter coming soon!")
+    elif choice == "4":
+        print("Goodbye! Thanks for using the toolkit.")
+        running = False
+    else:
+        print(f"Sorry, '{choice}' is not on the menu. Please type 1, 2, 3 or 4.")
